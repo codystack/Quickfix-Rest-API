@@ -108,7 +108,6 @@ export class OrdersService {
     if (
       adm.type !== AdminType.SUPER_ADMIN &&
       adm.role !== AdminRoles.MANAGER &&
-      adm.role !== AdminRoles.DEVELOPER &&
       adm.access !== AccessRights.READ_WRITE
     ) {
       throw new HttpException(
@@ -450,5 +449,32 @@ export class OrdersService {
     }
 
     return order;
+  }
+
+  async calcRevenues() {
+    const trans = await this.ordersRepository.find({}).lean().exec();
+    let chargeTotal = 0;
+    let overall = 0;
+    let counter = 0;
+
+    for (let index = 0; index < trans.length; index++) {
+      const order = trans[index];
+      counter = counter + 1;
+      overall = overall + order?.amount;
+      chargeTotal = chargeTotal + order?.amount;
+    }
+
+    // if (counter >= trans.length) {
+    //   return {
+    //     charges: chargeTotal,
+    //     topups: topupTotal,
+    //     total: overall,
+    //   };
+    // }
+
+    return {
+      charges: chargeTotal,
+      total: overall,
+    };
   }
 }

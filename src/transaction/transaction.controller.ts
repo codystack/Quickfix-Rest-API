@@ -99,6 +99,12 @@ export class TransactionController {
     );
   }
 
+  @UseGuards(JwtAuthGuard)
+  @Get('revenue')
+  async getRevenues() {
+    return this.service.calcRevenues();
+  }
+
   @Post('webhook')
   async paymentWebHook(@Req() req: Request) {
     console.log('PAYMENT DATA ::: ', req.body);

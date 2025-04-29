@@ -548,7 +548,7 @@ export class AdminsService {
   }
 
   async saveBannerAd(
-    { endDate, preview, startDate, title, type, url }: AddBannerDTO,
+    { preview, title, type, url }: AddBannerDTO,
     email_address: string,
   ) {
     try {

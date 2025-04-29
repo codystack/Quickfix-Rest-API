@@ -298,6 +298,10 @@ export class TransactionService {
     };
   }
 
+  async calcRevenues() {
+    return this.orderservice.calcRevenues();
+  }
+
   async webhookAction(data: any) {
     if (data) {
       console.log('DATA WEBHOOK CHECK ::--::', data);
