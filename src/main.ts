@@ -6,18 +6,14 @@ import { json } from 'express';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  // const corsOptions: CorsOptions = {
-  //   origin: '*', // Specify the origin of your frontend
-  //   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify the allowed HTTP methods
-  //   allowedHeaders: ['Content-Type', 'Authorization'], // Specify the allowed headers
-  //   // preflightContinue: false,
-  //   // optionsSuccessStatus: 200,
-  //   // maxAge: 5,
-  // };
-
   app.use(json({ limit: '10mb' }));
 
-  app.enableCors();
+  app.enableCors({
+    origin: ['https://pos.quickfix.ng', 'http://localhost:3036', 'http://localhost:3000'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
+    credentials: true,
+  });
   app.setGlobalPrefix('api/v1');
 
   await app.listen(5050);
