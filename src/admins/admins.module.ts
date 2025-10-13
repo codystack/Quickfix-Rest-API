@@ -22,7 +22,10 @@ import {
   Notification,
   NotificationSchema,
 } from 'src/schemas/notification.schema';
-import { AdminWallet, AdminWalletSchema } from 'src/schemas/admin.wallet.schema';
+import {
+  AdminWallet,
+  AdminWalletSchema,
+} from 'src/schemas/admin.wallet.schema';
 
 @Module({
   imports: [

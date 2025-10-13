@@ -56,6 +56,12 @@ export class Orders {
   amount: number;
 
   @Prop()
+  originalAmount?: number;
+
+  @Prop({ default: 0 })
+  discount?: number;
+
+  @Prop()
   delivery_fee?: number;
 
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'User' })
@@ -70,7 +76,7 @@ export class Orders {
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Location' })
   location: Location;
 
-  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Location' })
+  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Express' })
   express?: Express;
 
   @Prop()
@@ -102,3 +108,5 @@ export class Orders {
 }
 
 export const OrdersSchema = SchemaFactory.createForClass(Orders);
+// @ts-ignore - strictPopulate is valid in Mongoose but not in type definitions
+OrdersSchema.set('strictPopulate', false);
