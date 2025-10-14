@@ -64,6 +64,8 @@ export class OrdersService {
 
     const newOrder = await new this.ordersRepository({
       amount: payload.amount,
+      originalAmount: payload?.originalAmount,
+      discount: payload?.discount,
       description: payload.description,
       service: payload.service,
       address: payload?.address,
@@ -131,6 +133,8 @@ export class OrdersService {
 
     const newOrder = await new this.ordersRepository({
       amount: payload.amount,
+      originalAmount: payload?.originalAmount,
+      discount: payload?.discount,
       description: payload.description,
       service: payload.service,
       address: payload?.address,

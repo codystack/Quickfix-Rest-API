@@ -17,6 +17,14 @@ export class CreateOrderDTO {
 
   @IsOptional()
   @IsNumber()
+  originalAmount?: number;
+
+  @IsOptional()
+  @IsNumber()
+  discount?: number;
+
+  @IsOptional()
+  @IsNumber()
   delivery_fee?: number;
 
   @IsNotEmpty()

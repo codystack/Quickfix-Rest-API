@@ -1,4 +1,11 @@
-import { IsEmail, IsEnum, IsNotEmpty, IsPhoneNumber, IsString, IsStrongPassword } from 'class-validator';
+import {
+  IsEmail,
+  IsEnum,
+  IsNotEmpty,
+  IsPhoneNumber,
+  IsString,
+  IsStrongPassword,
+} from 'class-validator';
 import { AccessRights, AdminRoles } from 'src/admins/dtos/createadmin.dto';
 
 export class CredentialsDTO {

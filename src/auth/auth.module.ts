@@ -31,7 +31,10 @@ import { Express, ExpressSchema } from 'src/schemas/express.schema';
 import { SmsService } from 'src/sms/sms.service';
 import { TermiiService } from 'src/sms/providers/termii.service';
 import { SendChampService } from 'src/sms/providers/sendchamp.service';
-import { AdminWallet, AdminWalletSchema } from 'src/schemas/admin.wallet.schema';
+import {
+  AdminWallet,
+  AdminWalletSchema,
+} from 'src/schemas/admin.wallet.schema';
 
 @Module({
   imports: [
