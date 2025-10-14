@@ -18,7 +18,10 @@ async function bootstrap() {
 
   app.use(json({ limit: '10mb' }));
 
-  app.enableCors();
+  app.enableCors({
+    origin: ['https://pos.quickfix.ng', 'http://localhost:3000', 'http://localhost:3036'],
+    credentials: true,
+  });
   app.setGlobalPrefix('api/v1');
 
   await app.listen(5050);
