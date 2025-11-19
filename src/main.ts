@@ -11,7 +11,7 @@ async function bootstrap() {
   app.use(json({ limit: '10mb' }));
 
   app.enableCors({
-    origin: ['https://pos.quickfix.ng', 'http://localhost:3000', 'http://localhost:3036'],
+    origin: ['https://pos.quickfix.ng', 'http://localhost:3000', 'http://localhost:3035', 'http://localhost:3036'],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
     credentials: true,

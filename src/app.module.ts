@@ -31,8 +31,6 @@ import { OrdersModule } from './orders/orders.module';
 import { ServicesService } from './services/services.service';
 import { ServicesController } from './services/services.controller';
 import { ServicesModule } from './services/services.module';
-import { TransactionService } from './transaction/transaction.service';
-import { TransactionController } from './transaction/transaction.controller';
 import { TransactionModule } from './transaction/transaction.module';
 import { Service, ServiceSchema } from './schemas/service.schema';
 import { Orders, OrdersSchema } from './schemas/orders.schema';
@@ -112,7 +110,6 @@ import { AdminWallet, AdminWalletSchema } from './schemas/admin.wallet.schema';
   controllers: [
     AppController,
     ServicesController,
-    TransactionController,
     LocationsController,
   ],
   providers: [
@@ -133,7 +130,6 @@ import { AdminWallet, AdminWalletSchema } from './schemas/admin.wallet.schema';
     JwtService,
     LocationService,
     ServicesService,
-    TransactionService,
   ],
 })
 export class AppModule implements NestModule {

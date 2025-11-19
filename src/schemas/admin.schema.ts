@@ -1,10 +1,11 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { HydratedDocument } from 'mongoose';
+import { HydratedDocument, Types } from 'mongoose';
 import {
   AccessRights,
   AdminRoles,
   AdminType,
 } from 'src/admins/dtos/createadmin.dto';
+import { Location } from './location.schema';
 
 export type AdminDocument = HydratedDocument<Admin>;
 
@@ -65,6 +66,9 @@ export class Admin {
 
   @Prop()
   address: string;
+
+  @Prop({ type: Types.ObjectId, ref: 'Location' })
+  location: Types.ObjectId | Location;
 
   @Prop({ default: false })
   is_profile_set: boolean;
