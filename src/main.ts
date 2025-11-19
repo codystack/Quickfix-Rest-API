@@ -4,7 +4,7 @@ import { AppModule } from './app.module';
 import { json } from 'express';
 // import { CorsOptions } from '@nestjs/common/interfaces/external/cors-options.interface';
 
-// Version: 0.0.7 - Location filtering and transaction module fix
+// Version: 0.0.7 - Location filtering and transaction module fix - Build: 2025-11-19-18:43
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
