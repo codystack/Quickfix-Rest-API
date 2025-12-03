@@ -277,7 +277,15 @@ export class OrdersService {
       throw new HttpException('You are forbidden', HttpStatus.FORBIDDEN);
     }
 
-    await this.ordersRepository.updateOne({ _id: id }, { ...payload });
+    // Check if the payload contains isWhatsAppCompleted
+    const updatePayload = { ...payload };
+    if (payload.status === 'completed' && payload.isWhatsAppCompleted) {
+      updatePayload.isWhatsAppCompleted = true;
+    } else if (payload.status === 'completed') {
+      updatePayload.isWhatsAppCompleted = false;
+    }
+
+    await this.ordersRepository.updateOne({ _id: id }, updatePayload);
 
     const updatedOrder = await this.ordersRepository
       .findOne({

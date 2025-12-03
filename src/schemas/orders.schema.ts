@@ -105,6 +105,9 @@ export class Orders {
     default: 'pending',
   })
   status: string;
+
+  @Prop({ default: false })
+  isWhatsAppCompleted?: boolean;
 }
 
 export const OrdersSchema = SchemaFactory.createForClass(Orders);
